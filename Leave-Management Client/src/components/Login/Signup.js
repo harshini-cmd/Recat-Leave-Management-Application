@@ -4,7 +4,11 @@ import {
     MDBTabsPane,
     MDBBtn,
     MDBInput,
-    MDBCheckbox
+    MDBCheckbox,
+    MDBDropdown,
+    MDBDropdownItem,
+    MDBDropdownMenu,
+    MDBDropdownToggle
   }
   from 'mdb-react-ui-kit';
 
@@ -14,7 +18,13 @@ function Signup({error,justifyActive,handleSigninFormChange,handleSigninSubmit})
     <MDBTabsContent>
         <MDBTabsPane show={justifyActive === 'tab2'}>
           {error.length!==0 && (<div className="alert alert-danger" role="alert">{error}</div>)}
-          <MDBInput wrapperClass='mb-4' name='role' label='Role'  type='text' onChange={handleSigninFormChange}/>
+          <div className=" flex">
+            <p className="my-3">Role </p>
+            <select className=" bg-blue-400 rounded-lg m-3 px-3 py-1" name='role' onChange={handleSigninFormChange}>
+              <option>Manager</option>
+              <option>Employee</option>
+            </select>
+          </div>
           <MDBInput wrapperClass='mb-4' name='name' label='Name' type='text' onChange={handleSigninFormChange}/>
           <MDBInput wrapperClass='mb-4' name='email' label='Email' type='email' onChange={handleSigninFormChange}/>
           <MDBInput wrapperClass='mb-4' name='phone_number' label='Phone Number' type='text' onChange={handleSigninFormChange}/>
